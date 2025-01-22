@@ -23,4 +23,4 @@ Customer Demographics: Uncovered patterns in customer preferences, helping BMW t
 
 This analysis provides a comprehensive view of BMW's presence in the EV market and offers data-driven strategies to improve market penetration and customer engagement.
 
-This whole project is made and designed by SQL Server by Khurram Naveed 
+This whole project is made and designed in  SQL Server by Khurram Naveed 
