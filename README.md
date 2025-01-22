@@ -20,4 +20,7 @@ Top Sales Regions: Identified regions with strong sales performance, providing a
 Best-Selling Models: Analyzed model-wise sales to pinpoint the EV models contributing the most to BMW’s success.
 Market Positioning: Competitor analysis helped assess BMW's position relative to other key players in the EV space.
 Customer Demographics: Uncovered patterns in customer preferences, helping BMW tailor its marketing strategies to better meet consumer demands.
+
 This analysis provides a comprehensive view of BMW's presence in the EV market and offers data-driven strategies to improve market penetration and customer engagement.
+
+This whole project is made and designed by SQL Server by Khurram Naveed 
