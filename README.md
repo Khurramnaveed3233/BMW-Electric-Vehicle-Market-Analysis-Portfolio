@@ -23,4 +23,7 @@ Customer Demographics: Uncovered patterns in customer preferences, helping BMW t
 
 This analysis provides a comprehensive view of BMW's presence in the EV market and offers data-driven strategies to improve market penetration and customer engagement.
 
+🔗 Check out the full project on my GitHub: 
+https://github.com/Khurramnaveed3233/BMW-Electric-Vehicle-Market-Analysis-Portfolio/blob/main/BMW_EV_Market_Analysis.sql
+
 This whole project is made and designed in  SQL Server by Khurram Naveed 
