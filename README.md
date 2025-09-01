@@ -103,7 +103,7 @@
 ##  SQL Cheat-Sheet (for reviewers)
 
 
-1. YoY Sales Trend
+**1. YoY Sales Trend**
    
          SELECT Year, SUM(Sales) AS BMW_EV_Sales
          FROM BMW_Sales
@@ -111,7 +111,7 @@
          GROUP BY Year
          ORDER BY Year;
 
--- 2. Regional Gap vs Tesla
+^^2. Regional Gap vs Tesla**
 
        SELECT r.Region,
        COALESCE(SUM(CASE WHEN b.Vehicle_Type='Electric' THEN b.Sales END),0) AS BMW_Sales,
@@ -122,3 +122,11 @@
            LEFT JOIN Competitor_EVs c ON r.Region=c.Region AND c.Competitor='Tesla'
            GROUP BY r.Region
            ORDER BY Gap DESC;
+
+**Closing Note**
+
+- “BMW’s engineering heritage is unquestioned; the next battle is perception.
+- Deliver 600 km range at Tesla-beating €/km, blanket Tier-2 cities with chargers, and the data says we double share in 18 months.
+  
+Let’s stop chasing Tesla—and start overtaking.
+Khurram Naveed , Data Analyst
