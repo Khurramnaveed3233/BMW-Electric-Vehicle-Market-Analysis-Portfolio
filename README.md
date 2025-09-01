@@ -76,7 +76,7 @@
 *Insight*: **iX1** has the largest **interest-to-sales drop-off** due to range anxiety.
 
 ### 2. Competitor Benchmark – Value vs Range  
-![value-vs-range](assets/value_vs_range.png)  
+
 *Every €1 000 buys you **9.4 km** more in a Tesla vs **7.1 km** in a BMW.*
 
 ### 3. High-Interest Regions  
@@ -112,12 +112,13 @@
          ORDER BY Year;
 
 -- 2. Regional Gap vs Tesla
-SELECT r.Region,
+
+       SELECT r.Region,
        COALESCE(SUM(CASE WHEN b.Vehicle_Type='Electric' THEN b.Sales END),0) AS BMW_Sales,
        SUM(c.Sales) AS Tesla_Sales,
        SUM(c.Sales)-COALESCE(SUM(CASE WHEN b.Vehicle_Type='Electric' THEN b.Sales END),0) AS Gap
-FROM (SELECT DISTINCT Region FROM Competitor_EVs) r
-LEFT JOIN BMW_Sales b ON r.Region=b.Region
-LEFT JOIN Competitor_EVs c ON r.Region=c.Region AND c.Competitor='Tesla'
-GROUP BY r.Region
-ORDER BY Gap DESC;
+           FROM (SELECT DISTINCT Region FROM Competitor_EVs) r
+           LEFT JOIN BMW_Sales b ON r.Region=b.Region
+           LEFT JOIN Competitor_EVs c ON r.Region=c.Region AND c.Competitor='Tesla'
+           GROUP BY r.Region
+           ORDER BY Gap DESC;
