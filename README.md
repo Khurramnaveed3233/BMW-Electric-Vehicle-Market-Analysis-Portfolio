@@ -129,4 +129,5 @@
 - Deliver 600 km range at Tesla-beating €/km, blanket Tier-2 cities with chargers, and the data says we double share in 18 months.
   
 Let’s stop chasing Tesla—and start overtaking.
-Khurram Naveed , Data Analyst
+
+**Khurram Naveed , Data Analyst**
