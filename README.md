@@ -111,7 +111,7 @@
          GROUP BY Year
          ORDER BY Year;
 
-^^2. Regional Gap vs Tesla**
+**2. Regional Gap vs Tesla**
 
        SELECT r.Region,
        COALESCE(SUM(CASE WHEN b.Vehicle_Type='Electric' THEN b.Sales END),0) AS BMW_Sales,
