@@ -1,13 +1,16 @@
-# BMW Electric Vehicles Market Analysis 
+Below is the corrected and properly formatted **GitHub README.md markdown version** with fixed code blocks, spacing, headings, and repository structure formatting. 
+
+````markdown
+# 🚗 BMW Electric Vehicles Market Analysis
 
 ![bmw](https://github.com/user-attachments/assets/1160156b-4838-476f-ba52-55fe8f4f6e99)
 
-> **Role:** Data Analyst & Storyteller | **Tools:** SQL Server · Power BI · DAX | **Domain:** Automotive · EV Market Analytics · Competitive Intelligence
+> **Role:** Data Analyst & Storyteller  
+> **Tools:** SQL Server · Power BI · DAX  
+> **Domain:** Automotive · EV Market Analytics · Competitive Intelligence
 
 ---
-Here’s a polished **GitHub README-style Markdown version** optimized for portfolio presentation, recruiters, and hiring managers. 
 
-````markdown
 # 🚗 BMW EV Market Share Recovery & Growth Strategy
 ## Business-Driven Competitive Intelligence Project
 
@@ -30,7 +33,7 @@ Using sales analytics, customer segmentation, and competitor benchmarking, the p
 - 🌍 **35% Tier-2 market penetration**
 - ⭐ **Higher customer retention and NPS uplift within 18 months**
 
-> “This project transformed raw EV sales data into actionable business strategy by helping leadership identify where BMW is losing customers, why it is happening, and how to recover market share profitably.”
+> *This project transformed raw EV sales data into actionable business strategy by helping leadership identify where BMW is losing customers, why it is happening, and how to recover market share profitably.*
 
 ---
 
@@ -85,8 +88,6 @@ The primary objective was to build a competitive intelligence dashboard capable 
 ---
 
 # 🔍 Key Business Insights
-
----
 
 ## 1️⃣ Sales Growth Is Increasing — But Market Share Is Falling
 
@@ -186,8 +187,6 @@ BMW lacked sufficient:
 
 # ✅ Business Recommendations
 
----
-
 ## 🚗 Strategic Initiative 1 — Improve Competitive Range Positioning
 
 ### Goal
@@ -280,20 +279,6 @@ Increase NPS from **62 → 75** and improve customer retention.
 
 ---
 
-# 📌 Business Value Delivered
-
-This project demonstrates how data analytics can move beyond reporting and directly support:
-
-- Strategic decision-making
-- Revenue growth
-- Product optimization
-- Customer retention
-- Market expansion
-
-Instead of simply analyzing EV sales trends, the project provided BMW leadership with a clear roadmap for regaining competitiveness in the global EV market.
-
----
-
 # 📷 Suggested Dashboard Sections
 
 - Executive KPI Overview
@@ -319,91 +304,150 @@ Instead of simply analyzing EV sales trends, the project provided BMW leadership
 - Power BI Dashboarding
 - SQL Analytics
 
-```
----- 
+---
 
-##  SQL Cheat-Sheet
+# 💻 SQL Cheat Sheet
 
-### 1. YoY BMW EV Sales Trend
+## 1️⃣ YoY BMW EV Sales Trend
+
 ```sql
 SELECT
     Year,
-    SUM(Sales)                                    AS BMW_EV_Sales,
-    LAG(SUM(Sales)) OVER (ORDER BY Year)          AS Prev_Year_Sales,
+    SUM(Sales) AS BMW_EV_Sales,
+    LAG(SUM(Sales)) OVER (ORDER BY Year) AS Prev_Year_Sales,
     ROUND(
-        (SUM(Sales) - LAG(SUM(Sales)) OVER (ORDER BY Year)) * 100.0
-        / LAG(SUM(Sales)) OVER (ORDER BY Year), 1
-    )                                              AS YoY_Growth_Pct
+        (
+            SUM(Sales) - LAG(SUM(Sales)) OVER (ORDER BY Year)
+        ) * 100.0 /
+        LAG(SUM(Sales)) OVER (ORDER BY Year),
+        1
+    ) AS YoY_Growth_Pct
 FROM BMW_Sales
 WHERE Vehicle_Type = 'Electric'
 GROUP BY Year
 ORDER BY Year;
 ```
 
-### 2. Regional Gap vs Tesla
+---
+
+## 2️⃣ Regional Gap vs Tesla
+
 ```sql
 SELECT
     r.Region,
-    COALESCE(SUM(CASE WHEN b.Vehicle_Type = 'Electric' THEN b.Sales END), 0) AS BMW_Sales,
-    SUM(c.Sales)                                                               AS Tesla_Sales,
-    SUM(c.Sales) - COALESCE(SUM(CASE WHEN b.Vehicle_Type = 'Electric'
-        THEN b.Sales END), 0)                                                  AS Sales_Gap
-FROM (SELECT DISTINCT Region FROM Competitor_EVs) r
-LEFT JOIN BMW_Sales      b ON r.Region = b.Region
-LEFT JOIN Competitor_EVs c ON r.Region = c.Region AND c.Competitor = 'Tesla'
+    COALESCE(
+        SUM(
+            CASE
+                WHEN b.Vehicle_Type = 'Electric' THEN b.Sales
+            END
+        ),
+        0
+    ) AS BMW_Sales,
+
+    SUM(c.Sales) AS Tesla_Sales,
+
+    SUM(c.Sales) -
+    COALESCE(
+        SUM(
+            CASE
+                WHEN b.Vehicle_Type = 'Electric' THEN b.Sales
+            END
+        ),
+        0
+    ) AS Sales_Gap
+
+FROM (
+    SELECT DISTINCT Region
+    FROM Competitor_EVs
+) r
+
+LEFT JOIN BMW_Sales b
+    ON r.Region = b.Region
+
+LEFT JOIN Competitor_EVs c
+    ON r.Region = c.Region
+    AND c.Competitor = 'Tesla'
+
 GROUP BY r.Region
+
 ORDER BY Sales_Gap DESC;
 ```
 
-### 3. Price-Value Benchmark — Range per €1,000
+---
+
+## 3️⃣ Price-Value Benchmark — Range per €1,000
+
 ```sql
 SELECT
     Brand,
-    AVG(Price_EUR)                           AS Avg_Price,
-    AVG(Range_KM)                            AS Avg_Range,
-    ROUND(AVG(Range_KM) / (AVG(Price_EUR) / 1000), 2) AS KM_Per_1000_EUR
+    AVG(Price_EUR) AS Avg_Price,
+    AVG(Range_KM) AS Avg_Range,
+
+    ROUND(
+        AVG(Range_KM) / (AVG(Price_EUR) / 1000),
+        2
+    ) AS KM_Per_1000_EUR
+
 FROM (
-    SELECT 'BMW'   AS Brand, Price AS Price_EUR, Range_KM FROM BMW_EVs
+    SELECT
+        'BMW' AS Brand,
+        Price AS Price_EUR,
+        Range_KM
+    FROM BMW_EVs
+
     UNION ALL
-    SELECT Competitor, Price, Range FROM Competitor_EVs
+
+    SELECT
+        Competitor,
+        Price,
+        Range
+    FROM Competitor_EVs
 ) combined
+
 GROUP BY Brand
+
 ORDER BY KM_Per_1000_EUR DESC;
 ```
 
 ---
 
-##  Financial Impact Summary
+# 💰 Financial Impact Summary
 
 | Intervention | Investment Required | Projected Revenue Impact |
 |---|---|---|
 | Close range gap (600 km flagship) | High — R&D investment | +$400M from premium segment |
 | Tier-2 city penetration campaign | Medium — sales + charging infra | +$500M from volume growth |
 | Price-value reset (€/km parity) | Medium — pricing strategy | +$300M from conversion uplift |
-| **Total Projected Impact** | | **+$1.2B within 18 months** |
+| **Total Projected Impact** |  | **+$1.2B within 18 months** |
 
 ---
 
-##  Repository Structure
-```
- BMW-EV-Market-Analysis
-├── 📄 BMW_EV_Analysis.sql              — Full SQL scripts and queries
-├── 📊 BMW_EV_Dashboard.pbix            — Power BI dashboard
-├── 🖼️  Dashboard_Preview.jpg            — Dashboard screenshot
-├── 📄 Competitive_Benchmark.xlsx       — Model and competitor comparison data
-└── 📄 README.md                        — Project documentation
+# 📂 Repository Structure
+
+```bash
+BMW-EV-Market-Analysis/
+│
+├── BMW_EV_Analysis.sql
+├── BMW_EV_Dashboard.pbix
+├── Dashboard_Preview.jpg
+├── Competitive_Benchmark.xlsx
+└── README.md
 ```
 
 ---
 
-##  About
+# 👨‍💻 About
 
-**Khurram Naveed** — Data Analyst specializing in SQL, Power BI, and business intelligence.
+**Khurram Naveed**  
+Data Analyst specializing in SQL, Power BI, and Business Intelligence.
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin)](https://www.linkedin.com/in/khurramnaveed3233)
+
 [![GitHub](https://img.shields.io/badge/GitHub-Portfolio-black?logo=github)](https://github.com/Khurramnaveed3233)
+
 [![Email](https://img.shields.io/badge/Email-Contact-red?logo=gmail)](mailto:khurramnaveed4545@gmail.com)
 
 ---
 
->  *This project demonstrates how competitive market analytics — combining SQL-driven data modeling with strategic business storytelling — can translate raw EV sales data into a $1.2B revenue roadmap. The data doesn't just describe the problem; it prescribes the solution.*
+> *This project demonstrates how competitive market analytics — combining SQL-driven data modeling with strategic business storytelling — can translate raw EV sales data into a $1.2B revenue roadmap. The data doesn't just describe the problem; it prescribes the solution.*
+````
