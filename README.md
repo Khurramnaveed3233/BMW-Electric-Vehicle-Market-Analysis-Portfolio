@@ -5,143 +5,288 @@
 > **Role:** Data Analyst & Storyteller | **Tools:** SQL Server · Power BI · DAX | **Domain:** Automotive · EV Market Analytics · Competitive Intelligence
 
 ---
-
-##  Project Overview
-
-Analyzed **42,000+ BMW EV sales records** across regions, models, and competitor benchmarks to uncover why Tesla outsells BMW **3:1 in every key market**. The analysis identifies **range perception gaps, Tier-2 city under-penetration, and price-value misalignment** — projecting **+18% market share and +$1.2B revenue within 18 months** through targeted strategic interventions.
-
-> *"BMW's engineering heritage is unquestioned — the next battle is perception. Deliver 600 km range at Tesla-beating €/km, blanket Tier-2 cities with chargers, and the data says we double share in 18 months. Let's stop chasing Tesla — and start overtaking."*
+```markdown
+# BMW EV Market Share Recovery & Growth Strategy  
+## Business-Driven Competitive Intelligence Project
 
 ---
 
-##  Business Problem
+## Executive Summary
 
-BMW had no structured competitive intelligence to answer:
+Built a strategic EV market intelligence solution using **42,000+ BMW EV sales records**, customer preference data, and competitor benchmarks to identify why BMW is underperforming against Tesla across major markets.
 
-- Why does **Tesla outsell BMW 3:1** in every key region despite BMW's brand premium?
-- Which **models are losing customers** due to range anxiety and price-value perception?
-- Where are the **highest-opportunity Tier-2 markets** with unmet EV demand?
-- How does **BMW's €/km value** compare to Tesla's across the portfolio?
-- What **NPS and customer feature gaps** need closing to retain premium buyers?
+The analysis uncovered three major business risks impacting BMW’s EV growth:
 
----
+- Weak perceived value per euro spent
+- Limited penetration in high-growth Tier-2 markets
+- Customer churn caused by range anxiety and charging concerns
 
-##  Data Foundation
+Using sales analytics, customer segmentation, and competitor benchmarking, the project proposed targeted business interventions projected to generate:
 
-| Table | Rows | Grain | Key Fields |
-|---|---|---|---|
-| `BMW_Sales` | 42,031 | Region-Model-Year | Sales, Vehicle_Type |
-| `BMW_EVs` | 8 | Model | Range_KM, Battery_KWh, Price, Rating |
-| `Competitor_EVs` | 24 | Competitor-Region | Sales, Range, Price |
-| `Potential_Customers` | 1.1M | Region-Customer | Interest_Level, Preferred_Features |
+- **+18% EV market share growth**
+- **+$1.2B incremental revenue**
+- **35% Tier-2 market penetration**
+- **Higher customer retention and NPS uplift within 18 months**
+
+> *This project transformed raw EV sales data into actionable business strategy by helping leadership identify where BMW is losing customers, why it is happening, and how to recover market share profitably.*
 
 ---
 
-##  North-Star Targets
+# Business Problem
 
-| Metric | 2024 Current | 2025 Stretch Target |
-|---|---|---|
-| Global EV Market Share | 7% | 12% |
-| Avg Range vs Tesla Gap | -82 km | -30 km |
-| Tier-2 City Penetration | 18% | 35% |
-| Customer NPS | 62 | 75 |
+BMW’s EV division was experiencing strong sales growth, but its competitive position was weakening relative to Tesla and emerging EV brands.
 
----
+Leadership lacked a centralized analytics framework to answer critical business questions such as:
 
-##  Key Findings
+- Why is BMW losing EV buyers despite premium brand positioning?
+- Which vehicle attributes are driving customer switching behavior?
+- Which markets offer the highest untapped revenue opportunity?
+- How does BMW’s value proposition compare against Tesla?
+- Which products require immediate strategic repositioning?
 
-### ACT 1 — Sales Performance (YoY Trend)
+Without data-backed visibility, BMW risked:
 
-| Year | BMW EV Sales | YoY Growth |
-|---|---|---|
-| 2020 | 12,000 | — |
-| 2021 | 18,000 | +50% |
-| 2022 | 28,000 | +56% |
-| 2023 | 35,000 | +25% |
-| 2024 | 42,000 | +20% |
-
-- **Growth is decelerating while the EV market is accelerating**
-- BMW grew +20% in 2024 while the overall EV market grew +35% — BMW is losing relative share
-- Without intervention, the Tesla gap will widen further through 2026
-
-### ACT 2 — Regional Reality Check
-
-| Region | BMW Sales | Tesla Sales | Gap (Units) | BMW Share |
-|---|---|---|---|---|
-| Europe | 16,000 | 48,000 | -32,000 | 25% |
-| North America | 14,000 | 41,000 | -27,000 | 25% |
-| China | 8,000 | 30,000 | -22,000 | 21% |
-| APAC ex-China | 4,000 | 9,000 | -5,000 | 31% |
-
-- **BMW is never #1 in any region** — Tesla dominates all four key markets
-- APAC ex-China is the **strongest relative market** at 31% share — best candidate for a winning campaign
-- China gap of 22K units represents the highest growth risk given rapid local EV competition
-
-### ACT 3 — Customer Preference Heat Map
-
-| Feature | Importance Rank | BMW Score | Tesla Score | Gap |
-|---|---|---|---|---|
-| Range | #1 | 7.2 / 10 | 8.9 / 10 | -1.7 |
-| Charging Speed | #2 | 7.1 / 10 | 8.7 / 10 | -1.6 |
-| Price Value | #3 | 6.5 / 10 | 7.8 / 10 | -1.3 |
-| Tech / Infotainment | #4 | 7.9 / 10 | 8.4 / 10 | -0.5 |
-
-- **Range is the #1 purchase factor — and BMW's biggest gap vs Tesla**
-- Tech/Infotainment is the closest competitive score — BMW's relative strength
-- Price-Value gap of 1.3 points is widening as Tesla introduces lower-priced models
+- Declining global EV market share
+- Reduced customer loyalty
+- Weak adoption in emerging EV markets
+- Long-term revenue erosion
 
 ---
 
-##  Deep-Dive Insights
+# Business Objective
 
-### Model-Level Performance
+The primary goal was to build a competitive intelligence dashboard capable of helping executives:
 
-| Model | 2024 Sales | Avg Range | Avg Price | NPS |
-|---|---|---|---|---|
-| i4 | 18,000 | 475 km | €58,000 | 68 |
-| iX | 12,000 | 520 km | €78,000 | 70 |
-| iX1 | 8,000 | 380 km | €45,000 | 61 |
-| iX3 | 4,000 | 420 km | €55,000 | 59 |
-
-- **iX1 has the largest interest-to-sales drop-off** — 380 km range triggers range anxiety at this price point
-- **iX leads in both range and NPS** — premium customers are satisfied but volume is limited
-- **i4 is the volume leader** — opportunity to push range to 520 km+ for competitive parity
-
-### Competitor Benchmark — Value vs Range
-
-| Metric | BMW | Tesla | Gap |
-|---|---|---|---|
-| Range per €1,000 spent | 7.1 km | 9.4 km | -2.3 km |
-
-- **Every €1,000 buys 9.4 km in a Tesla vs only 7.1 km in a BMW** — 32% value gap
-- This single metric explains the price-value satisfaction gap better than any other factor
-
-### High-Interest Tier-2 Region Opportunities
-
-| Region | High-Interest Leads | BMW Sales Gap | Revenue Opportunity |
-|---|---|---|---|
-| Tier-2 Germany | 110,000 | -38,000 | €2.1B |
-| Tier-2 USA | 95,000 | -31,000 | €1.8B |
-| Tier-2 India | 80,000 | -25,000 | €1.1B |
-
-- **Tier-2 Germany alone represents a €2.1B revenue opportunity** that BMW is currently leaving on the table
-- Combined Tier-2 opportunity across three markets exceeds **€5B** in addressable revenue
+✅ Identify the drivers behind Tesla’s market dominance  
+✅ Quantify lost revenue opportunities by region and product  
+✅ Improve pricing-to-value perception  
+✅ Prioritize expansion into underserved Tier-2 markets  
+✅ Increase EV adoption and customer retention
 
 ---
 
-##  Recommendations — 18-Month OKRs
+# Data Ecosystem
 
-| OKR | Owner | KPI | Target | Timeline |
-|---|---|---|---|---|
-| Close Range Gap | Product Team | Avg Range vs Tesla ≤ 30 km | 600 km+ flagship model | 2026 Q2 |
-| Tier-2 City Blitz | Sales | 35% penetration in 200 cities | 70,000 new units | 2026 Q4 |
-| Price-Value Reset | Finance | €/km parity vs Tesla | 9.4 km per €1,000 | 2026 Q1 |
-| Customer NPS Uplift | CX Team | NPS 62 → 75 | Post-purchase program | 2025 Q4 |
-| Charging Alliance | Partnerships | 15,000 new fast-chargers | Co-branded network | 2026 Q2 |
+| Dataset | Business Purpose |
+|---|---|
+| BMW Sales Data | Analyze regional sales trends and growth slowdown |
+| BMW EV Product Data | Evaluate range, pricing, and customer satisfaction |
+| Competitor Benchmark Data | Compare Tesla and competitor value proposition |
+| Customer Preference Data | Understand purchase drivers and feature expectations |
 
-**Projected combined impact: +18% market share and +$1.2B revenue within 18 months**
+### Total Data Processed
+
+- 42K+ EV sales transactions
+- 1.1M customer-level preference records
+- Multi-region market intelligence datasets
 
 ---
+
+# Key Business Insights
+
+## 1️⃣ Sales Growth Is Increasing — But Market Share Is Falling
+
+Although BMW EV sales grew from **12K to 42K units**, overall EV market growth significantly outpaced BMW growth.
+
+### Business Impact
+
+BMW’s competitive position is weakening despite positive sales numbers.
+
+### Strategic Risk
+
+If growth continues below market pace, Tesla’s lead will widen further, reducing BMW’s long-term EV relevance.
+
+---
+
+## 2️⃣ Tesla Dominates Every Major Market
+
+Regional benchmarking showed BMW consistently trailing Tesla across Europe, North America, and China.
+
+### Critical Insight
+
+BMW held only ~25% relative share in key regions compared to Tesla.
+
+### Business Impact
+
+- Reduced pricing power
+- Lower economies of scale
+- Increased customer acquisition costs
+
+### Opportunity
+
+APAC ex-China showed the strongest relative performance, indicating potential for focused growth campaigns.
+
+---
+
+## 3️⃣ Range Anxiety Is the Largest Customer Conversion Barrier
+
+Customer preference analysis revealed that:
+
+| Customer Priority | Competitive Gap |
+|---|---|
+| Driving Range | Highest Gap |
+| Charging Speed | Major Gap |
+| Price-to-Value Ratio | Significant Gap |
+
+### Business Insight
+
+Customers prioritize practicality over luxury branding when purchasing EVs.
+
+BMW’s weaker range perception directly impacts:
+
+- Lead-to-sale conversion
+- Customer satisfaction
+- Repeat purchase intent
+
+---
+
+## 4️⃣ Product Portfolio Misalignment
+
+Model-level analysis identified major inefficiencies within BMW’s EV lineup.
+
+### Example Findings
+
+- **iX1** showed the highest customer drop-off due to lower perceived range at its price point.
+- **i4** emerged as the highest-volume model but lacked competitive range parity.
+- **iX** achieved strong customer satisfaction but low scalability due to premium pricing.
+
+### Business Impact
+
+BMW was investing in products that did not fully align with evolving EV buyer expectations.
+
+---
+
+## 5️⃣ Tier-2 Markets Represent Multi-Billion-Euro Growth Potential
+
+The analysis identified substantial unmet EV demand in Tier-2 cities across:
+
+- Germany
+- USA
+- India
+
+### Revenue Opportunity
+
+Combined addressable opportunity exceeded **€5B**.
+
+### Strategic Insight
+
+Tesla’s stronger charging ecosystem and market accessibility gave it a first-mover advantage in these regions.
+
+BMW lacked sufficient:
+
+- Dealer coverage
+- Charging infrastructure
+- Localized EV awareness campaigns
+
+---
+
+# Business Recommendations
+
+## Strategic Initiative 1 — Improve Competitive Range Positioning
+
+### Goal
+
+Reduce the perceived range gap against Tesla.
+
+### Recommended Actions
+
+- Launch 600 km+ flagship EV models
+- Improve battery efficiency
+- Enhance charging speed performance
+
+### Expected Outcome
+
+Higher conversion rates and reduced range-anxiety-related churn.
+
+---
+
+## Strategic Initiative 2 — Expand Aggressively Into Tier-2 Markets
+
+### Goal
+
+Capture underserved EV demand.
+
+### Recommended Actions
+
+- Expand dealership and charging network
+- Launch localized campaigns
+- Build strategic infrastructure partnerships
+
+### Expected Outcome
+
+70K+ additional unit sales and stronger regional market penetration.
+
+---
+
+## Strategic Initiative 3 — Redefine Price-to-Value Perception
+
+### Problem
+
+Tesla delivered significantly higher range per €1,000 spent.
+
+### Recommended Actions
+
+- Optimize EV pricing strategy
+- Improve standard feature offerings
+- Introduce mid-tier variants with higher value perception
+
+### Expected Outcome
+
+Improved customer acquisition and competitive positioning.
+
+---
+
+## Strategic Initiative 4 — Improve Customer Experience & NPS
+
+### Recommended Actions
+
+- Strengthen post-purchase engagement
+- Enhance software and infotainment experience
+- Improve charging accessibility
+
+### Expected Outcome
+
+Increase NPS from 62 → 75 and improve customer retention.
+
+---
+
+# Projected Business Impact
+
+| KPI | Projected Outcome |
+|---|---|
+| EV Market Share | +18% |
+| Incremental Revenue | +$1.2B |
+| Tier-2 Penetration | 18% → 35% |
+| Customer NPS | 62 → 75 |
+| Competitive Range Gap | Reduced by 60% |
+
+---
+
+# Tools & Technologies
+
+- SQL Server
+- Power BI
+- Excel
+- Data Modeling
+- Customer Segmentation
+- Competitive Benchmarking
+- KPI Dashboarding
+
+---
+
+# Business Value Delivered
+
+This project demonstrates how data analytics can move beyond reporting and directly support:
+
+- Strategic decision-making
+- Revenue growth
+- Product optimization
+- Customer retention
+- Market expansion
+
+Instead of simply analyzing EV sales trends, the project provided BMW leadership with a clear roadmap for regaining competitiveness in the global EV market.
+```
+---- 
 
 ##  SQL Cheat-Sheet
 
